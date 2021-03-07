@@ -1,0 +1,24 @@
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: transform 450ms;
+  cursor: pointer;
+}
+img {
+  max-width: 200px;
+  margin-bottom: -8px;
+  border-radius: 3px;
+}
+
+h3 {
+  font-family: "Roboto", sans-serif;
+  color: #fafafa;
+  letter-spacing: 0.05em;
+  text-align: center;
+  font-weight: 400;
+}
+
+.movie-card:hover {
+  transform: scale(1.08);
+}

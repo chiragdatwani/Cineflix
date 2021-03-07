@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import Header from "./components/Header";
+import { Switch, Route } from "react-router-dom";
+import Home from "./components/Home";
+import SearchResult from "./components/SearchResult";
+import User from "./components/User";
 
 function App() {
+  const [navShow, setnavShow] = useState(true);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 80) {
+        setnavShow(false);
+      } else setnavShow(true);
+    });
+    return () => {
+      window.removeEventListener("scroll");
+    };
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header show={navShow} />
+      <Switch>
+        <Route path="/" exact>
+          <Home />
+        </Route>
+        <Route path="/search">
+          <SearchResult />
+        </Route>
+        <Route path="/user">
+          <User />
+        </Route>
+      </Switch>
     </div>
   );
 }

@@ -1,0 +1,22 @@
+.movie-list {
+  margin-top: 10px;
+  width: 95vw;
+  display: flex;
+  flex-direction: column;
+  border-bottom: solid 1px rgba(255, 255, 255, 0.075);
+}
+.movies {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+h2 {
+  font-family: "Roboto", sans-serif;
+  color: #fafafa;
+  letter-spacing: 0.05em;
+  text-align: center;
+  font-weight: lighter;
+  text-align: start;
+}
