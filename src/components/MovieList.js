@@ -1,17 +1,35 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import MovieCard from "./MovieCard";
 import "./MovieList.css";
-function MovieList() {
+import axios from "axios";
+
+function MovieList(props) {
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await axios.get(props.fetchUrl);
+      setMovies(response.data.results.slice(0, 6));
+    }
+
+    fetchData();
+  }, []);
+
   return (
     <div className="movie-list">
-      <h2>Trending Now</h2>
+      <h2>{props.title}</h2>
+
       <div className="movies">
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
+        {movies.map((movie) => {
+          return (
+            <MovieCard
+              key={movie.id}
+              id={movie.id}
+              title={movie.title}
+              imageUrl={movie.poster_path}
+            />
+          );
+        })}
       </div>
     </div>
   );

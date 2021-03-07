@@ -31,7 +31,6 @@ class SearchBar extends React.Component {
               id="filled-secondary"
               label="Search Movies"
               variant="outlined"
-              color="primary"
               value={this.state.value}
               fullWidth
               InputProps={{
