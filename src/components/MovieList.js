@@ -9,11 +9,16 @@ function MovieList(props) {
   useEffect(() => {
     async function fetchData() {
       const response = await axios.get(props.fetchUrl);
-      setMovies(response.data.results.slice(0, 6));
+      setMovies(() => {
+        if (props.trim) {
+          return response.data.results.slice(0, 6);
+        }
+        return response.data.results;
+      });
     }
 
     fetchData();
-  }, []);
+  }, [props.fetchUrl]);
 
   return (
     <div className="movie-list">

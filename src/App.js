@@ -10,13 +10,14 @@ function App() {
   const [navShow, setnavShow] = useState(true);
 
   useEffect(() => {
-    window.addEventListener("scroll", () => {
+    const navFade = () => {
       if (window.scrollY > 80) {
         setnavShow(false);
       } else setnavShow(true);
-    });
+    };
+    window.addEventListener("scroll", navFade);
     return () => {
-      window.removeEventListener("scroll");
+      window.removeEventListener("scroll", navFade);
     };
   }, []);
   return (
@@ -26,7 +27,7 @@ function App() {
         <Route path="/" exact>
           <Home />
         </Route>
-        <Route path="/search">
+        <Route path="/search/:query">
           <SearchResult />
         </Route>
         <Route path="/user">

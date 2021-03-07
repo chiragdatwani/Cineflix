@@ -4,6 +4,7 @@
   align-items: flex-start;
   transition: transform 450ms;
   cursor: pointer;
+  margin: 0 20px;
 }
 img {
   max-width: 200px;

@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./SearchBar.css";
 import TextField from "@material-ui/core/TextField";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
@@ -25,9 +25,11 @@ class SearchBar extends React.Component {
             action="submit"
             onSubmit={(e) => {
               e.preventDefault();
+              this.props.handleSubmit(this.state.value);
             }}
           >
             <TextField
+              autoComplete="off"
               id="filled-secondary"
               label="Search Movies"
               variant="outlined"
