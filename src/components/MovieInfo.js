@@ -84,6 +84,7 @@ function MovieInfo() {
         title="You might also like"
         fetchUrl={`https://api.themoviedb.org/3/movie/${id}/similar?api_key=a1c8048951164cc08dff8c1ea6d7fcfc`}
         trim
+        red
       />
     </div>
   );

@@ -13,7 +13,7 @@
   display: block;
   width: 100vw;
   height: 70vh;
-  margin: 68px auto;
+  margin: 68px auto 50px auto;
   overflow: hidden;
 
   transition: all 0.4s;

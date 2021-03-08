@@ -9,18 +9,18 @@ function MovieCard(props) {
     return title;
   };
   return (
-    <Link
-      to={`/movie/${props.id}`}
-      style={{ textDecoration: "none", color: "unset" }}
-    >
-      <div className="movie-card">
+    <div className="movie-card">
+      <Link
+        to={`/movie/${props.id}`}
+        style={{ textDecoration: "none", color: "unset" }}
+      >
         <img
           src={`https://image.tmdb.org/t/p/w500/${props.imageUrl}`}
           alt={props.title}
         />
         <h3>{refactorTitle(props.title)}</h3>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 }
 

@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import { Switch, Route } from "react-router-dom";
 import Home from "./components/Home";
 import SearchResult from "./components/SearchResult";
-import User from "./components/User";
+import Profile from "./components/Profile";
 import MovieInfo from "./components/MovieInfo";
 import Footer from "./components/Footer";
 
@@ -24,22 +24,25 @@ function App() {
   }, []);
   return (
     <div className="App">
-      <Header show={navShow} />
-      <Switch>
-        <Route path="/" exact>
-          <Home />
-        </Route>
-        <Route path="/search/:query">
-          <SearchResult />
-        </Route>
-        <Route path="/user">
-          <User />
-        </Route>
-        <Route path="/movie/:id">
-          <MovieInfo />
-        </Route>
-      </Switch>
-      <Footer />
+      <div className="flex-wrapper">
+        <Header show={navShow} />
+        <Switch>
+          <Route path="/" exact>
+            <Home />
+          </Route>
+          <Route path="/search/:query">
+            <SearchResult />
+          </Route>
+          <Route path="/movie/:id">
+            <MovieInfo />
+          </Route>
+          <Route path="/profile">
+            <Profile />
+          </Route>
+        </Switch>
+
+        <Footer />
+      </div>
     </div>
   );
 }
