@@ -11,7 +11,7 @@ function MovieList(props) {
       const response = await axios.get(props.fetchUrl);
       setMovies(() => {
         if (props.trim) {
-          return response.data.results.slice(0, 6);
+          return response.data.results.slice(0, 8);
         }
         return response.data.results;
       });

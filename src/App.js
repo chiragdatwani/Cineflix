@@ -5,13 +5,15 @@ import { Switch, Route } from "react-router-dom";
 import Home from "./components/Home";
 import SearchResult from "./components/SearchResult";
 import User from "./components/User";
+import MovieInfo from "./components/MovieInfo";
+import Footer from "./components/Footer";
 
 function App() {
   const [navShow, setnavShow] = useState(true);
 
   useEffect(() => {
     const navFade = () => {
-      if (window.scrollY > 80) {
+      if (window.scrollY > 60) {
         setnavShow(false);
       } else setnavShow(true);
     };
@@ -33,7 +35,11 @@ function App() {
         <Route path="/user">
           <User />
         </Route>
+        <Route path="/movie/:id">
+          <MovieInfo />
+        </Route>
       </Switch>
+      <Footer />
     </div>
   );
 }

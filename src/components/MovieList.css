@@ -1,10 +1,10 @@
 .movie-list {
   margin-top: 10px;
   width: 95vw;
-  max-width: 1500px;
+
   display: flex;
   flex-direction: column;
-  border-bottom: solid 1px rgba(255, 255, 255, 0.075);
+  border-bottom: solid 1px rgba(255, 255, 255, 0.082);
   margin: auto;
 }
 .movies {
@@ -21,4 +21,31 @@ h2 {
   text-align: center;
   font-weight: lighter;
   text-align: start;
+}
+
+@media only screen and (max-width: 1450px) {
+  .movie-card:last-child {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .movie-card:last-child {
+    display: flex;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .movie-list {
+    width: 85vw;
+  }
+}
+
+@media only screen and (min-width: 1800px) {
+  .movie-list {
+    width: 90vw;
+  }
+  .movies > div {
+    margin: 0 20px;
+  }
 }
