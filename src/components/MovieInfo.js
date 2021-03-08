@@ -3,6 +3,7 @@ import "./MovieInfo.css";
 import MovieList from "./MovieList";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 
 function MovieInfo() {
   const { id } = useParams();
@@ -31,6 +32,7 @@ function MovieInfo() {
             <img
               className="locandina"
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              alt="movie-logo"
             />
             <h1>{movie.title}</h1>
             <h4>
@@ -45,6 +47,9 @@ function MovieInfo() {
                 : "Loading..."}
             </p>
             <p className="minutes">{`${movie.runtime} min`}</p>
+            <Button variant="outlined" color="secondary">
+              Add to Watchlist
+            </Button>
           </div>
           <div className="movie_desc">
             <p className="text">{movie.overview}</p>
