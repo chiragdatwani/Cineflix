@@ -106,3 +106,21 @@
     width: 60vw;
   }
 }
+
+@media only screen and (max-width: 800px) {
+  .profile {
+    width: 80vw;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .profile {
+    width: 80vw;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .profile {
+    width: 95vw;
+  }
+}
