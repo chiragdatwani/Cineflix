@@ -18,8 +18,11 @@ function MovieList(props) {
     }
 
     fetchData();
-  }, [props.fetchUrl]);
+  }, [props.fetchUrl, props.trim]);
 
+  if (movies.length === 0) {
+    return <div></div>;
+  }
   return (
     <div className="movie-list">
       <h2>{props.title}</h2>

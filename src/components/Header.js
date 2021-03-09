@@ -1,4 +1,4 @@
-import { AppBar, Button, Toolbar, Typography } from "@material-ui/core";
+import { AppBar, Button, Toolbar } from "@material-ui/core";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import React from "react";
@@ -9,11 +9,9 @@ function Header(props) {
   return (
     <AppBar className={`nav ${!props.show ? "hide" : ""}`} color="secondary">
       <Toolbar className="nav__container">
-        {/* <Typography variant="h5"> */}
         <Link style={{ textDecoration: "none", color: "unset" }} to="/">
           <h2 className="logo">CineFlix</h2>
         </Link>
-        {/* </Typography> */}
 
         {props.currentUser ? (
           <Link

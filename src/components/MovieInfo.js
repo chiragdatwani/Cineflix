@@ -14,6 +14,7 @@ function MovieInfo(props) {
   const [yt, setYt] = useState("");
 
   const addedToWatchlist =
+    // eslint-disable-next-line
     props.watchList.filter((movie) => movie.id == id).length > 0;
 
   useEffect(() => {
@@ -67,8 +68,9 @@ function MovieInfo(props) {
                 onClick={() => {
                   if (props.currentUser) {
                     props.addMovie(movie, props.currentUser.uid);
+                  } else {
+                    window.alert("Sign In to add to WatchList");
                   }
-                  window.alert("Sign In to add to WatchList");
                 }}
                 variant="outlined"
                 color="secondary"

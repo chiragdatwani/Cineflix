@@ -1,4 +1,3 @@
-import _ from "lodash";
 const watchlistReducer = (state = [], action) => {
   switch (action.type) {
     case "FETCH_MOVIES":
