@@ -20,3 +20,9 @@
   flex-direction: column;
   justify-content: space-between;
 }
+
+.logo {
+  font-weight: 900;
+  /* font-size: 18px; */
+  letter-spacing: 0.2em;
+}

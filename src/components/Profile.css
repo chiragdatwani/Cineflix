@@ -1,0 +1,108 @@
+.profile {
+  margin: auto;
+  margin-top: 20px;
+  width: 40vw;
+  background-color: #1e2125;
+  min-height: 60vh;
+  border-radius: 5px;
+}
+
+.info {
+  display: flex;
+}
+
+.MuiAvatar-square {
+  width: 100px !important;
+  height: 95px !important;
+  border-top-left-radius: 5px !important;
+}
+
+.text-info {
+  margin-left: 10px;
+  margin-top: -8px;
+}
+
+.text-info > h3 {
+  font-size: 16px;
+  margin-top: -8px;
+}
+
+.logout {
+  flex: 40%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 20px;
+  padding-bottom: 24px;
+}
+
+.movie-count {
+  margin: 30px;
+  border-bottom: 1px solid black;
+}
+.movie-count > h2 {
+  text-align: center;
+}
+
+.delete-btn:hover {
+  transform: scale(1.2);
+}
+.list-item {
+  width: 100%;
+  display: flex;
+  border-bottom: solid 1px black;
+  padding: 7px 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.movie-poster {
+  width: 85px;
+  border-radius: 2px;
+}
+
+.list-item > .movie-info {
+  flex: 50%;
+  margin-left: 20px;
+  padding-bottom: 50px;
+}
+
+.list-item > .movie-info > .movie-title {
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.list-item > .movie-info > .movie-rating {
+  font-weight: 400;
+}
+
+.list-item > .delete {
+  flex: 25%;
+  text-align: end;
+  margin-right: 72px;
+}
+
+.list-item > .delete > .delete-icon {
+  cursor: pointer;
+  transition: transform 0.45s ease;
+}
+
+.movie-info > p {
+  color: #fff;
+}
+
+.list-item > .delete > .delete-icon:hover {
+  transform: scale(1.1);
+}
+
+@media only screen and (max-width: 1500px) {
+  .profile {
+    width: 50vw;
+  }
+}
+
+@media only screen and (max-width: 1180px) {
+  .profile {
+    width: 60vw;
+  }
+}

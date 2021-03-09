@@ -1,7 +1,7 @@
 const API_KEY = "a1c8048951164cc08dff8c1ea6d7fcfc";
 
 const requests = {
-  trending: `https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}`,
+  trending: `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`,
   action: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&sort_by=popularity.desc&page=1&with_genres=28`,
   animation: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&sort_by=popularity.desc&page=1&with_genres=16`,
   comedy: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&sort_by=popularity.desc&page=1&with_genres=35`,

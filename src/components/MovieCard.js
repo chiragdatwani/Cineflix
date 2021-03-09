@@ -15,6 +15,7 @@ function MovieCard(props) {
         style={{ textDecoration: "none", color: "unset" }}
       >
         <img
+          className="img-movie"
           src={`https://image.tmdb.org/t/p/w500/${props.imageUrl}`}
           alt={props.title}
         />

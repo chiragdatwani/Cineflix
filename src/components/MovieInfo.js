@@ -2,13 +2,19 @@ import React, { useState, useEffect } from "react";
 import "./MovieInfo.css";
 import MovieList from "./MovieList";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import Button from "@material-ui/core/Button";
+import { connect } from "react-redux";
+import { addMovie } from "../actions/index";
 
-function MovieInfo() {
+function MovieInfo(props) {
   const { id } = useParams();
   const [movie, setMovie] = useState({});
   const [yt, setYt] = useState("");
+
+  const addedToWatchlist =
+    props.watchList.filter((movie) => movie.id == id).length > 0;
 
   useEffect(() => {
     async function fetchData() {
@@ -47,9 +53,29 @@ function MovieInfo() {
                 : "Loading..."}
             </p>
             <p className="minutes">{`${movie.runtime} min`}</p>
-            <Button variant="outlined" color="secondary">
-              Add to Watchlist
-            </Button>
+            {addedToWatchlist ? (
+              <Link
+                to="/profile"
+                style={{ textDecoration: "none", color: "unset" }}
+              >
+                <Button variant="contained" color="secondary">
+                  Added to WatchList
+                </Button>
+              </Link>
+            ) : (
+              <Button
+                onClick={() => {
+                  if (props.currentUser) {
+                    props.addMovie(movie, props.currentUser.uid);
+                  }
+                  window.alert("Sign In to add to WatchList");
+                }}
+                variant="outlined"
+                color="secondary"
+              >
+                Add to Watchlist
+              </Button>
+            )}
           </div>
           <div className="movie_desc">
             <p className="text">{movie.overview}</p>
@@ -57,6 +83,7 @@ function MovieInfo() {
               <a
                 href={`https://www.imdb.com/title/${movie.imdb_id}`}
                 target="_blank"
+                rel="noreferrer"
               >
                 <img
                   className="imdb-logo"
@@ -64,8 +91,13 @@ function MovieInfo() {
                   alt="imdb-logo"
                 />
               </a>
-              <a href={`https://www.youtube.com/watch?v=${yt}`} target="_blank">
+              <a
+                href={`https://www.youtube.com/watch?v=${yt}`}
+                target="_blank"
+                rel="noreferrer"
+              >
                 <img
+                  className="yt-logo"
                   src="https://www.logo.wine/a/logo/YouTube/YouTube-White-Logo.wine.svg"
                   alt="youtube-logo"
                 />
@@ -90,4 +122,10 @@ function MovieInfo() {
   );
 }
 
-export default MovieInfo;
+const mapStateToProps = (state) => {
+  return {
+    currentUser: state.currentUser,
+    watchList: state.watchlist,
+  };
+};
+export default connect(mapStateToProps, { addMovie })(MovieInfo);
