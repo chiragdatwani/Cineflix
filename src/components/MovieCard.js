@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./MovieCard.css";
+import Loader from './Loader'
+
+
 function MovieCard(props) {
   const refactorTitle = (title) => {
     if (title.length > 13) {
@@ -14,11 +17,13 @@ function MovieCard(props) {
         to={`/movie/${props.id}`}
         style={{ textDecoration: "none", color: "unset" }}
       >
-        <img
+        {props.imageUrl ?
+          <img
           className="img-movie"
           src={`https://image.tmdb.org/t/p/w500/${props.imageUrl}`}
           alt={props.title}
-        />
+        />:
+        <Loader/>}
         <h3>{refactorTitle(props.title)}</h3>
       </Link>
     </div>

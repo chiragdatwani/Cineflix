@@ -2,9 +2,11 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  
   transition: transform 450ms;
   cursor: pointer;
   margin: 0 10px;
+  min-height: 280.83px;
 }
 .img-movie {
   max-width: 150px;

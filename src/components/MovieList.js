@@ -21,7 +21,17 @@ function MovieList(props) {
   }, [props.fetchUrl, props.trim]);
 
   if (movies.length === 0) {
-    return <div></div>;
+    if(props.title === 'You might also like'){
+      return <div></div>
+        
+    }
+    return (
+      <>
+      <div className="movie-list">
+        <h2> {props.title} </h2>
+      </div>
+       <h1>No Movies Found</h1>
+       </>)
   }
   return (
     <div className="movie-list">

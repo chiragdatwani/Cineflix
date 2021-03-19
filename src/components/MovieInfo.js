@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import { connect } from "react-redux";
 import { addMovie } from "../actions/index";
+import Loader from "./Loader";
 
 function MovieInfo(props) {
   const { id } = useParams();
@@ -26,8 +27,11 @@ function MovieInfo(props) {
         `https://api.themoviedb.org/3/movie/${id}/videos?api_key=a1c8048951164cc08dff8c1ea6d7fcfc`
       );
       setMovie(response.data);
-
-      setYt(ytResponse.data.results[0].key);
+      console.log(ytResponse)
+      if(ytResponse.data.results.length > 0){
+        setYt(ytResponse.data.results[0].key)
+      }
+    
     }
     fetchData();
   }, [id]);
@@ -36,11 +40,13 @@ function MovieInfo(props) {
       <div className="movie_card">
         <div className="info_section">
           <div className="movie_header">
-            <img
+            {movie.poster_path?
+              <img
               className="locandina"
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
               alt="movie-logo"
-            />
+            />:
+            <Loader/>}
             <h1>{movie.title}</h1>
             <h4>
               {movie.release_date
