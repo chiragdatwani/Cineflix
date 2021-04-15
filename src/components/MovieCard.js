@@ -16,6 +16,8 @@ function MovieCard(props) {
     }
     return title;
   };
+
+  
   return (
     <animated.div style={springProps} className="movie-card">
       <Link

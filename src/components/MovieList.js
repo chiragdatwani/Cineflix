@@ -5,7 +5,6 @@ import axios from "axios";
 
 function MovieList(props) {
   const [movies, setMovies] = useState([]);
-  console.log(window.location.pathname)
 
   useEffect(() => {
     async function fetchData() {
@@ -35,6 +34,7 @@ function MovieList(props) {
        <h1>No Movies Found</h1>
        </>)
   }
+  
   return (
     <div className="movie-list">
       <h2>{props.title}</h2>

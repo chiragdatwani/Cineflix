@@ -8,7 +8,8 @@ function Footer() {
       </div>
       <a 
         href="https://www.themoviedb.org/"
-        target='_blank' 
+        target='_blank'
+        rel="noreferrer"
         style={{textDecoration:'none'}}
       >
         <div className="tmdb">

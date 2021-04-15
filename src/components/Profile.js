@@ -6,7 +6,6 @@ import "./Profile.css";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { auth } from "../firebase/firebaseUtils";
 import { removeMovie } from "../actions/index";
-import {useTransition, animated} from 'react-spring'
 
 function WatchList({ currentUser, watchList, removeMovie }) {
   const history = useHistory();

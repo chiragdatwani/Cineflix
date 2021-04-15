@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./MovieInfo.css";
 import MovieList from "./MovieList";
 import axios from "axios";
+import requests from '../api/requests'
 import {useSpring, animated, config} from 'react-spring'
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -27,12 +28,8 @@ function MovieInfo(props) {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await axios.get(
-        `https://api.themoviedb.org/3/movie/${id}?api_key=a1c8048951164cc08dff8c1ea6d7fcfc`
-      );
-      const ytResponse = await axios.get(
-        `https://api.themoviedb.org/3/movie/${id}/videos?api_key=a1c8048951164cc08dff8c1ea6d7fcfc`
-      );
+      const response = await axios.get(requests.getMovie(id));
+      const ytResponse = await axios.get(requests.getYoutube(id));
       setMovie(response.data);
       console.log(ytResponse)
       if(ytResponse.data.results.length > 0){
@@ -42,6 +39,8 @@ function MovieInfo(props) {
     }
     fetchData();
   }, [id]);
+
+  
   return (
     <div className="page__container">
       <div className="movie_card">

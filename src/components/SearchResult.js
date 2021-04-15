@@ -3,6 +3,8 @@ import { useParams, useHistory } from "react-router-dom";
 import "./SearchResult.css";
 import MovieList from "./MovieList";
 import SearchBar from "./SearchBar";
+import requests from '../api/requests'
+
 function SearchResult() {
   const { query } = useParams();
 
@@ -23,7 +25,7 @@ function SearchResult() {
 
       <MovieList
         title={`Search results for: ${searchQuery}`}
-        fetchUrl={`https://api.themoviedb.org/3/search/movie?api_key=a1c8048951164cc08dff8c1ea6d7fcfc&query=${searchQuery}`}
+        fetchUrl={requests.searchMovie(searchQuery)}
       />
     </div>
   );
