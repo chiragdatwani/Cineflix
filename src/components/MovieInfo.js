@@ -31,7 +31,6 @@ function MovieInfo(props) {
       const response = await axios.get(requests.getMovie(id));
       const ytResponse = await axios.get(requests.getYoutube(id));
       setMovie(response.data);
-      console.log(ytResponse)
       if(ytResponse.data.results.length > 0){
         setYt(ytResponse.data.results[0].key)
       }
@@ -42,17 +41,17 @@ function MovieInfo(props) {
 
   
   return (
-    <div className="page__container">
+
+    !movie.title ? <div></div> :
+      <div className="page__container">
       <div className="movie_card">
         <animated.div style={springPropsInfo} className="info_section">
           <div className="movie_header">
-            {movie.poster_path?
-              <img
+            <img
               className="locandina"
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
               alt="movie-logo"
-            />:
-            <Loader/>}
+            />
             <h1>{movie.title}</h1>
             <h4>
               {movie.release_date
@@ -138,7 +137,7 @@ function MovieInfo(props) {
       </animated.div>
     </div>
   );
-}
+};
 
 const mapStateToProps = (state) => {
   return {

@@ -36,7 +36,6 @@ function App(props) {
       window.removeEventListener("scroll", navFade);
     };
   }, []);
-  console.log(process.env)
 
   return (
     <div className="App">
