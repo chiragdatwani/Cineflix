@@ -1,10 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {useSpring, animated, config} from 'react-spring';
 import "./MovieCard.css";
 import Loader from './Loader'
 
 
 function MovieCard(props) {
+
+  //Animations
+  const springProps = useSpring({opacity: 1, from: {opacity: 0}, config: config.molasses});
+
   const refactorTitle = (title) => {
     if (title.length > 13) {
       return title.slice(0, 12) + "...";
@@ -12,7 +17,7 @@ function MovieCard(props) {
     return title;
   };
   return (
-    <div className="movie-card">
+    <animated.div style={springProps} className="movie-card">
       <Link
         to={`/movie/${props.id}`}
         style={{ textDecoration: "none", color: "unset" }}
@@ -26,7 +31,7 @@ function MovieCard(props) {
         <Loader/>}
         <h3>{refactorTitle(props.title)}</h3>
       </Link>
-    </div>
+    </animated.div>
   );
 }
 

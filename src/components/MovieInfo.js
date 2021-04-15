@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./MovieInfo.css";
 import MovieList from "./MovieList";
 import axios from "axios";
+import {useSpring, animated, config} from 'react-spring'
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import Button from "@material-ui/core/Button";
@@ -14,9 +15,15 @@ function MovieInfo(props) {
   const [movie, setMovie] = useState({});
   const [yt, setYt] = useState("");
 
+  //Animations
+  const springPropsInfo = useSpring({left: '0', from:{left: '-100%' }, delay: 700})
+  const springPropsBackground = useSpring({right: '0', from:{right: '-100%' }, delay: 400})
+  const springPropsButtons = useSpring({scale: 1, from: {scale: 0}, delay: 1400})
+  const springPropsMovieList = useSpring({marginTop: '0', from: {marginTop: '200px'}, delay: 1600, config: config.slow})
+
   const addedToWatchlist =
     // eslint-disable-next-line
-    props.watchList.filter((movie) => movie.id == id).length > 0;
+  props.watchList.filter((movie) => movie.id == id).length > 0;
 
   useEffect(() => {
     async function fetchData() {
@@ -38,7 +45,7 @@ function MovieInfo(props) {
   return (
     <div className="page__container">
       <div className="movie_card">
-        <div className="info_section">
+        <animated.div style={springPropsInfo} className="info_section">
           <div className="movie_header">
             {movie.poster_path?
               <img
@@ -88,7 +95,8 @@ function MovieInfo(props) {
           <div className="movie_desc">
             <p className="text">{movie.overview}</p>
             <div className="external-links">
-              <a
+              <animated.a
+                style={springPropsButtons}
                 href={`https://www.imdb.com/title/${movie.imdb_id}`}
                 target="_blank"
                 rel="noreferrer"
@@ -98,8 +106,9 @@ function MovieInfo(props) {
                   src="https://upload.wikimedia.org/wikipedia/commons/6/69/IMDB_Logo_2016.svg"
                   alt="imdb-logo"
                 />
-              </a>
-              <a
+              </animated.a>
+              <animated.a
+                style={springPropsButtons}
                 href={`https://www.youtube.com/watch?v=${yt}`}
                 target="_blank"
                 rel="noreferrer"
@@ -109,23 +118,25 @@ function MovieInfo(props) {
                   src="https://www.logo.wine/a/logo/YouTube/YouTube-White-Logo.wine.svg"
                   alt="youtube-logo"
                 />
-              </a>
+              </animated.a>
             </div>
           </div>
-        </div>
-        <div
-          style={{
+        </animated.div>
+        <animated.div
+          style={{...springPropsBackground,
             backgroundImage: `url("https://image.tmdb.org/t/p/original${movie.backdrop_path}")`,
           }}
           className="blur_back bright_back"
-        ></div>
+        ></animated.div>
       </div>
-      <MovieList
-        title="You might also like"
-        fetchUrl={`https://api.themoviedb.org/3/movie/${id}/similar?api_key=a1c8048951164cc08dff8c1ea6d7fcfc`}
-        trim
-        red
-      />
+      <animated.div style={springPropsMovieList}>
+        <MovieList
+          title="You might also like"
+          fetchUrl={`https://api.themoviedb.org/3/movie/${id}/similar?api_key=a1c8048951164cc08dff8c1ea6d7fcfc`}
+          trim
+          red
+        />
+      </animated.div>
     </div>
   );
 }

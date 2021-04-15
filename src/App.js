@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useLocation } from "react-router-dom";
 import { connect } from "react-redux";
 import Home from "./components/Home";
 import SearchResult from "./components/SearchResult";
@@ -36,6 +36,8 @@ function App(props) {
       window.removeEventListener("scroll", navFade);
     };
   }, []);
+  
+
   return (
     <div className="App">
       <div className="flex-wrapper">

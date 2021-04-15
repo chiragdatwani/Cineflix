@@ -54,6 +54,7 @@
   padding: 7px 20px;
   justify-content: space-between;
   align-items: center;
+  
 }
 
 .movie-poster {
@@ -87,6 +88,10 @@
   transition: transform 0.45s ease;
 }
 
+.removing {
+
+  animation: fadeOut .6s;
+}
 .movie-info > p {
   color: #fff;
 }
@@ -122,5 +127,16 @@
 @media only screen and (max-width: 500px) {
   .profile {
     width: 95vw;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    margin-left: 0;
+  }
+  100% {
+    opacity:0;
+    margin-left: 3rem;
   }
 }

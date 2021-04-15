@@ -5,6 +5,7 @@ import axios from "axios";
 
 function MovieList(props) {
   const [movies, setMovies] = useState([]);
+  console.log(window.location.pathname)
 
   useEffect(() => {
     async function fetchData() {
@@ -14,17 +15,18 @@ function MovieList(props) {
           return response.data.results.slice(0, 8);
         }
         return response.data.results;
-      });
+        });
     }
 
     fetchData();
   }, [props.fetchUrl, props.trim]);
 
   if (movies.length === 0) {
-    if(props.title === 'You might also like'){
+    if(props.title === 'You might also like' || window.location.pathname === '/'){
       return <div></div>
         
     }
+    
     return (
       <>
       <div className="movie-list">

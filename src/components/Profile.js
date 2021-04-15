@@ -1,11 +1,12 @@
-import { Avatar, Button } from "@material-ui/core";
 import React from "react";
+import { Avatar, Button } from "@material-ui/core";
 import { Link, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import "./Profile.css";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { auth } from "../firebase/firebaseUtils";
 import { removeMovie } from "../actions/index";
+import {useTransition, animated} from 'react-spring'
 
 function WatchList({ currentUser, watchList, removeMovie }) {
   const history = useHistory();
@@ -61,8 +62,8 @@ function WatchList({ currentUser, watchList, removeMovie }) {
             </div>
             <div className="watch-list">
               {!watchList
-                ? "Loading..."
-                : watchList.map((movie) => (
+                ? "Loading...":
+                watchList.map((movie) => (
                     <div key={movie.id} className="list-item">
                       <Link to={`/movie/${movie.id}`}>
                         <img
@@ -85,11 +86,17 @@ function WatchList({ currentUser, watchList, removeMovie }) {
                           color="secondary"
                           className="delete-icon"
                           fontSize="large"
-                          onClick={() => removeMovie(movie, currentUser.uid)}
+                          onClick={(e) => {
+                            e.target.parentElement.parentElement.parentElement.classList.add('removing')
+                            setTimeout(() => {
+                              removeMovie(movie, currentUser.uid)
+                            }, 600);
+                            }}
                         />
                       </div>
                     </div>
-                  ))}
+                  ))
+                  }
             </div>
           </div>
         </>
