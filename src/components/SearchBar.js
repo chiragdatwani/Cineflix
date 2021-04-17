@@ -19,7 +19,13 @@ const darkTheme = createMuiTheme({
 const MyList = styled(List)({
   marginTop: '5px',
   backgroundColor: '#1e2125',
-  color: '#ffffff'
+  color: '#ffffff',
+})
+
+const MyListItem = styled(ListItem)({
+  '&:hover': {
+    background: '#2c3036',
+  }
 })
 
 const SearchBar = (props) => {
@@ -94,9 +100,9 @@ const SearchBar = (props) => {
                   to={`/movie/${movie.id}`}
                   style={{ textDecoration: "none", color: "unset" }}
                 >
-                  <ListItem button>
+                  <MyListItem button>
                   <ListItemText primary={`${movie.title} ${movie.release_date ? '(' + movie.release_date.split("-")[0] + ')': ''}`} />
-                  </ListItem>
+                  </MyListItem>
                   <Divider light/>
                 </Link>
               </div>
