@@ -10,10 +10,17 @@ h1 {
   letter-spacing: 0.03em;
   text-align: center;
   font-size: 38px;
+  padding: 0 5px;
 }
 
 .search-bar {
   max-width: 70%;
   min-width: 30%;
   margin: auto;
+}
+
+@media screen and (max-width: 400px) {
+  h1 {
+    font-size: 32px
+  }
 }

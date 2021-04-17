@@ -9,7 +9,7 @@ import { useParams } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import { connect } from "react-redux";
 import { addMovie } from "../actions/index";
-import Loader from "./Loader";
+
 
 function MovieInfo(props) {
   const { id } = useParams();

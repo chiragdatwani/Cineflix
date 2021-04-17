@@ -1,0 +1,10 @@
+.search-bar {
+
+    position: relative;
+}
+
+.search-list {
+    position: absolute;
+    width: 100%;
+    z-index: 111;
+}

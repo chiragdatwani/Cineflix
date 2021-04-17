@@ -118,10 +118,10 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 850px) {
   .movie_card {
-    width: 95%;
-    margin: 70px auto;
+    width: 100%;
+    margin:  auto;
     min-height: 350px;
     height: auto;
   }
@@ -133,11 +133,21 @@
 
   .movie_header {
     width: 100%;
-    margin-top: 85px;
+    margin-top: 20px;
+    padding: 0 10px !important
   }
 
   .movie_desc {
     width: 100%;
+  }
+
+  .movie_desc .text {
+    margin-right: 40px;
+  }
+
+  .movie_desc .external-links {
+    justify-content: center;
+    margin: 0 0 0 -25px;
   }
 
   .info_section {
