@@ -34,7 +34,6 @@ const SearchBar = (props) => {
       }else{
         const {data} = await axios.get(requests.searchMovie(value));
         setMovies(data.results.slice(0,5))
-        console.log(movies)
       }
     }
 
