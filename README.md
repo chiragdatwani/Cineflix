@@ -1,5 +1,16 @@
 ## A movie database and watchlist app made with **React, Redux and Firebase**.
 [Link to the App](https://cineflix-cd.web.app/)
+
+
+Technologies Used-
+- React
+- Redux
+- Redux Thunk
+- React Spring(Animations)
+- Firebase(Auth)
+- Axios
+
+
 ---
 
 ![Screenshot (14)](https://user-images.githubusercontent.com/69471735/111830629-89c64b00-88ee-11eb-86fd-1f0c41a7b5a5.png)
@@ -7,6 +18,10 @@
 ---
 
 ![Screenshot (15)](https://user-images.githubusercontent.com/69471735/111830638-8af77800-88ee-11eb-951d-497ccfa51476.png)
+
+---
+
+![Screenshot (19)](https://user-images.githubusercontent.com/69471735/115469973-de365080-a235-11eb-9123-945404456dee.png)
 
 ---
 
