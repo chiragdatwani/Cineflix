@@ -1,8 +1,8 @@
-## A movie database and watchlist app made with **React, Redux and Firebase**.
-[Link to the App](https://cineflix-cd.web.app/)
+# A movie database and watchlist app made with **React, Redux and Firebase**.
+## [Link to the App](https://cineflix-cd.web.app/)
 
 
-Technologies Used-
+### Tech Stack Used:
 - React
 - Redux
 - Redux Thunk
