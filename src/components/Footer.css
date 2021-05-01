@@ -27,3 +27,36 @@ h4 {
   letter-spacing: 0.05em;
   text-align: center;
 }
+
+.dev-name > a{
+  display: flex;
+  align-items: center;
+}
+
+.dev-name > a > img{
+  width: 40px;
+  margin-right: 10px;
+}
+
+@media screen and (max-width:500px) {
+  .dev-name > a > img{
+    width: 30px;
+    margin-right: 5px;
+  }
+
+  .tmdb-logo {
+    width: 65px;
+    margin-left: -10px;
+  }
+
+  .tmdb{
+    margin-right: 0;
+  }
+  .footer{
+    margin: 30px 10px 10px 15px;
+  }
+  .footer h4{
+    font-size: 15px;
+  }
+
+}

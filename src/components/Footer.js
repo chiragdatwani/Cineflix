@@ -4,7 +4,15 @@ function Footer() {
   return (
     <div className="footer">
       <div className="dev-name">
-        <h4 className="dev-name-h3">&copy; Chirag Datwani</h4>
+      <a 
+        href="https://github.com/chiragdatwani/Cineflix"
+        target='_blank'
+        rel="noreferrer"
+        style={{textDecoration:'none'}}
+      >
+        <img src={process.env.PUBLIC_URL + "/GitHub-Mark-Light-64px.png"} alt="github"/>
+        <h4 className="dev-name-h3">Chirag Datwani</h4>
+        </a>
       </div>
       <a 
         href="https://www.themoviedb.org/"
