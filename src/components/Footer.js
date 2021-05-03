@@ -2,7 +2,7 @@ import React from "react";
 import "./Footer.css";
 function Footer() {
   return (
-    <div className="footer">
+    <footer>
       <div className="dev-name">
       <a 
         href="https://github.com/chiragdatwani/Cineflix"
@@ -29,7 +29,7 @@ function Footer() {
             />
         </div>
       </a>
-    </div>
+    </footer>
   );
 }
 

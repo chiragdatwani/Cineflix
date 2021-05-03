@@ -9,14 +9,6 @@ function MovieCard(props) {
 
   //Animations
   const springProps = useSpring({opacity: 1, from: {opacity: 0}, config: config.molasses});
-
-  const refactorTitle = (title) => {
-    if (title.length > 13) {
-      return title.slice(0, 12) + "...";
-    }
-    return title;
-  };
-
   
   return (
     <animated.div style={springProps} className="movie-card">
@@ -24,14 +16,16 @@ function MovieCard(props) {
         to={`/movie/${props.id}`}
         style={{ textDecoration: "none", color: "unset" }}
       >
-        {props.imageUrl ?
-          <img
-          className="img-movie"
-          src={`https://image.tmdb.org/t/p/w500/${props.imageUrl}`}
-          alt={props.title}
-        />:
-        <Loader/>}
-        <h3>{refactorTitle(props.title)}</h3>
+        <div className="img-container">
+          {props.imageUrl ?
+            <img
+            className="img-movie"
+            src={`https://image.tmdb.org/t/p/w500/${props.imageUrl}`}
+            alt={props.title}
+          />:
+          <Loader/>}
+        </div>
+        <h3>{props.title}</h3>
       </Link>
     </animated.div>
   );

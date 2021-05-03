@@ -14,12 +14,21 @@
   border-radius: 3px;
 }
 
+.img-container {
+  width: 150px;
+  height: 225px;
+}
+
 h3 {
   font-family: "Roboto", sans-serif;
   color: #fafafa;
   letter-spacing: 0.05em;
   text-align: center;
   font-weight: 400;
+  width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .movie-card:hover {
