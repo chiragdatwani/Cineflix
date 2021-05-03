@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SearchBar from "./SearchBar";
 import "./Home.css";
 import MovieList from "./MovieList";
@@ -10,6 +10,10 @@ function Home() {
   const handleSubmit = (value) => {
     history.push(`/search/${value}`);
   };
+
+  useEffect(() => {
+    document.title = 'Cineflix | Millions of movies to discover'
+  }, [])
 
   return (
     <div className="page__container home">

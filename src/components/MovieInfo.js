@@ -34,7 +34,7 @@ function MovieInfo(props) {
       if(ytResponse.data.results.length > 0){
         setYt(ytResponse.data.results[0].key)
       }
-    
+      document.title = `${response.data.title} | Cineflix`
     }
     fetchData();
   }, [id]);

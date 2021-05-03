@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Avatar, Button } from "@material-ui/core";
 import { Link, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
@@ -9,6 +9,10 @@ import { removeMovie } from "../actions/index";
 
 function WatchList({ currentUser, watchList, removeMovie }) {
   const history = useHistory();
+
+  useEffect(() => {
+    document.title = 'WatchList | Cineflix'
+  }, [])
 
   return (
     <div className="page__container">
